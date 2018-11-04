@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python /home/pi/pythonTools/sms_service/helpServer.py
+ExecStart=/usr/bin/python /home/pi/ghomeTools/sms_service/helpServer.py
 
 [Install]
 WantedBy=multi-user.target

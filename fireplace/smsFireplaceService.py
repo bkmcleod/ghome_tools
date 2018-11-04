@@ -31,6 +31,9 @@ import homeassistant.remote as remote
 from datetime import datetime
 from homeassistant.const import STATE_ON
 from homeassistant.const import STATE_OFF
+import sys
+sys.path.append("/home/pi/ghomeTools/")
+import hiddenFields
 
 
 outgoingSMSTopic = "/sms/outgoingMessage/"
@@ -87,12 +90,12 @@ def sendHelpMessage(outgoingSMSTopic, phoneNumber):
 	client.publish(outgoingSMSTopic + phoneNumber, helpMessage)		
 	
 	
-api = remote.API('192.168.11.160', 'turninTuna')
+api = remote.API(hiddenFields.HASSServer, hiddenFields.HASSPassword)
 
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("192.168.11.160", 1883, 60)
+client.connect(hiddenFields.MQTTServer, 1883, 60)
 
 # Loop printing measurements every second.
 print('Entering Loop; Press Ctrl-C to quit.')

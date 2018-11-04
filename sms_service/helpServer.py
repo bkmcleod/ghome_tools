@@ -1,4 +1,8 @@
 import paho.mqtt.client as mqtt
+import sys
+sys.path.append("/home/pi/ghomeTools/")
+import hiddenFields
+
 import time
 outgoingSMSTopic = "/sms/outgoingMessage/"
 incomingHelpMessageTopic = "/sms/incomingMessage/help/"
@@ -20,7 +24,7 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("192.168.11.160", 1883, 60)
+client.connect(hiddenFields.MQTTServer, 1883, 60)
 
 
 # Loop printing measurements every second.

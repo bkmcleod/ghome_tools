@@ -29,6 +29,9 @@ import os
 import paho.mqtt.client as mqtt
 import homeassistant.remote as remote
 
+import sys
+sys.path.append("/home/pi/ghomeTools/")
+import hiddenFields
 
 currentTemp=260.0
 newData= True
@@ -44,7 +47,7 @@ def on_message(client, userdata, msg):
 	newData=True
 
 	
-api = remote.API('192.168.11.160', 'turninTuna')
+api = remote.API(hiddenFields.HASSServer, hiddenFields.HASSPassword)
 print(remote.validate_api(api))	
 
 
@@ -53,7 +56,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("192.168.11.160", 1883, 60)
+client.connect(hiddenFields.MQTTServer, 1883, 60)
 
 # Loop printing measurements every second.
 print('Press Ctrl-C to quit.')

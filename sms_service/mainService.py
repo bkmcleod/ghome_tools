@@ -1,3 +1,7 @@
+import sys
+sys.path.append("/home/pi/ghomeTools/")
+import hiddenFields
+
 from googlevoice import Voice
 from googlevoice.util import ParsingError
 from googlevoice.util import input
@@ -6,7 +10,6 @@ import os
 import paho.mqtt.client as mqtt
 import csv
 from googlevoice import Voice
-import sys
 import BeautifulSoup
 from datetime import datetime
 
@@ -102,7 +105,7 @@ def clear_sms_queue(messageQueue):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("192.168.11.160", 1883, 60)
+client.connect(hiddenFields.MQTTServer, 1883, 60)
 
 #login and connect to GoogleVoice
 voice = Voice()

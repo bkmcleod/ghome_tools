@@ -32,6 +32,10 @@ import Adafruit_MAX31855.MAX31855 as MAX31855
 import paho.mqtt.client as mqtt
 
 
+import sys
+sys.path.append("/home/pi/ghomeTools/")
+import hiddenFields
+
 # Define a function to convert celsius to fahrenheit.
 def c_to_f(c):
     return c * 9.0 / 5.0 + 32.0
@@ -55,7 +59,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("192.168.11.160", 1883, 60)
+client.connect(hiddenFields.MQTTServer, 1883, 60)
 
 
 # Loop printing measurements every second.
