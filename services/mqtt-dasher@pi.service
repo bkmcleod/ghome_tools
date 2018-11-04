@@ -1,0 +1,10 @@
+[Unit]
+Description=Mqtt Dasher
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'sudo CONFIG_DIR=/opt/mqtt-dasher mqtt-dasher'
+WorkingDirectory=/home/pi/mqtt-dasher/bin/
+
+[Install]
+WantedBy=multi-user.target

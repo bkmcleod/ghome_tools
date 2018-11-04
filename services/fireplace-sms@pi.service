@@ -1,0 +1,10 @@
+[Unit]
+Description=Fireplace SMS Sytsem
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3.4 /home/pi/pythonTools/services/fireplace/smsFireplaceService.py
+
+[Install]
+WantedBy=multi-user.target

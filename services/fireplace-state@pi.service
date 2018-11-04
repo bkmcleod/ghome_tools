@@ -1,0 +1,12 @@
+[Unit]
+Description=Fireplace State Setter
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=3
+Type=idle
+ExecStart=/usr/bin/python3.4 /home/pi/pythonTools/services/fireplace/stateSetter.py
+
+[Install]
+WantedBy=multi-user.target

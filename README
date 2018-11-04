@@ -1,0 +1,6 @@
+Service files go in /etc/systemd/system
+
+Installation/tools required:
+mqtt-dasher: https://github.com/stjohnjohnson/mqtt-dasher
+pygooglevoice: https://github.com/pettazz/pygooglevoice
+

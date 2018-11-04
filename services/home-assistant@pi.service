@@ -1,0 +1,16 @@
+# This is a simple service file for systems with systemd to tun HA as user.
+#
+# For details please check https://home-assistant.io/getting-started/autostart/
+#
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=hass
+ExecStartPre=source /srv/hass/bin/activate
+ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
+
+[Install]
+WantedBy=multi-user.target
