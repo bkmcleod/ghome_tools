@@ -6,7 +6,7 @@ After=multi-user.target
 Restart=always
 RestartSec=3
 Type=idle
-ExecStart=/usr/bin/python3.4 /home/pi/ghomeTools/services/fireplace/stateSetter.py
+ExecStart=/usr/bin/python3.4 /home/pi/ghomeTools/fireplace/stateSetter.py
 
 [Install]
 WantedBy=multi-user.target
